@@ -10,7 +10,7 @@
 // @grant        GM_setValue
 // @grant        GM_registerMenuCommand
 // @grant        GM_notification
-// @grant        GM_addStyle
+// @grant        GM_openInTab
 // @run-at       context-menu
 // @license      MIT
 // ==/UserScript==
@@ -152,6 +152,10 @@ review-on:
             }
         }
 
+        function openObsidianLink() {
+            GM_openInTab('obsidian://', { active: true, insert: true });
+        }
+
         // open the file in obsidian
         try {
             let response = await fetch(obsidianUrl + '/open' + documentPath, {
@@ -160,8 +164,14 @@ review-on:
                     'Authorization': `Bearer ${token}`
                 }
             });
+            if (!fileExists) {
+                GM_notification({ title: 'Problem Imported Successfully', text: `Please open your Obsidian editor to see it.`, timeout: 3000, onclick: openObsidianLink });
+            } else {
+                GM_notification({ title: 'Problem Exists!', text: `Please open your Obsidian editor to see it.`, timeout: 3000, onclick: openObsidianLink });
+            }
         } catch (error) {
             console.error('Error:', error);
+            GM_notification({ title: 'Error Occurred', text: `${error} Do you have Obsidian opened?`, timeout: 3000 });
         }
     }
 
