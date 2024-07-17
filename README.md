@@ -17,3 +17,7 @@ You may change this script for different file paths or templates.
 # License
 
 MIT
+
+# Note
+
+You are welcomed to raise PRs to improve the functionality of this script.
