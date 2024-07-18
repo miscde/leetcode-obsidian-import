@@ -165,13 +165,13 @@ review-on:
                 }
             });
             if (!fileExists) {
-                GM_notification({ title: 'Problem Imported Successfully', text: `Please open your Obsidian editor to see it.`, timeout: 3000, onclick: openObsidianLink });
+                GM_notification({ title: 'Problem Imported Successfully', text: `Please open your Obsidian editor to see it.`, timeout: 5000, onclick: openObsidianLink });
             } else {
-                GM_notification({ title: 'Problem Exists!', text: `Please open your Obsidian editor to see it.`, timeout: 3000, onclick: openObsidianLink });
+                GM_notification({ title: 'Problem Exists!', text: `Please open your Obsidian editor to see it.`, timeout: 5000, onclick: openObsidianLink });
             }
         } catch (error) {
             console.error('Error:', error);
-            GM_notification({ title: 'Error Occurred', text: `${error} Do you have Obsidian opened?`, timeout: 3000 });
+            GM_notification({ title: 'Error Occurred', text: `${error} Do you have Obsidian opened?`, timeout: 5000 });
         }
     }
 
@@ -182,7 +182,7 @@ review-on:
             token = prompt(promptText);
             if (token) {
                 GM_setValue(key, token);
-                GM_notification({ title: 'Input Saved', text: `Your input for ${key} has been saved.`, timeout: 3000 });
+                GM_notification({ title: 'Input Saved', text: `Your input for ${key} has been saved.`, timeout: 5000 });
             }
         }
         return token;
