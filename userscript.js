@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Save Leetcode Problem to Obsidian
 // @namespace    http://tampermonkey.net/
-// @version      2024-07-18
+// @version      2024-07-26
 // @description  Save the current leetcode problem as new obsidian note.
 // @author       miscde
 // @match        https://leetcode.com/problems/*
