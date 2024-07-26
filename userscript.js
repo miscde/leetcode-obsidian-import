@@ -77,6 +77,7 @@
     function getProblemName() {
         if (linkElement) {
             let linkText = linkElement.textContent || linkElement.innerText;
+            linkText = linkText.replace(/\?/g, "");
             console.log('Link Text:', linkText);
             return linkText;
         } else {
